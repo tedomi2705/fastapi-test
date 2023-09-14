@@ -41,8 +41,7 @@ jobs:
                   echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
                   ssh-keyscan -H ${{ secrets.SSH_HOST }} > ~/.ssh/known_hosts
             - name: Copy docker-compose.yml to server
-              run: scp -o StrictHostKeyChecking=no docker-compose.yml ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.WORK_DIR }}/docker-compose.yml     
-    
+              run: scp -o StrictHostKeyChecking=no docker-compose.yml ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.WORK_DIR }}/docker-compose.yml
             - name: connect and pull
               run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd ${{ secrets.WORK_DIR }} && docker compose pull && docker compose up -d && exit"
             - name: cleanup
