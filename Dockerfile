@@ -3,7 +3,7 @@ FROM python:3.11.5-slim
 
 EXPOSE 8000
 
-LABEL org.opencontainers.image.source = "https://github.com/tedomi2705/fastapi"
+LABEL org.opencontainers.image.source = "https://github.com/tedomi2705/fastapi-test"
 
 # Keeps Python from generating .pyc files in the container
 ENV PYTHONDONTWRITEBYTECODE=1
